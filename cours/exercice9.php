@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style="text-align: center;color:orange">Exercice 8 sur le JavaScript</h1>
+    <h1 style="text-align: center;color:orange">Exercice 9 sur le JavaScript</h1>
 
     <div name="LesDIV">coucou</div>
     <div name="LesDIV">coucou</div>
