@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Faire disparaître une image</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Dissimulation du script
+
+var montrer = true
+
+///////////////////////////////////////////////////////
+// La fonction basculer() cache et montre alternativement
+// un élément. (Cet exemple ne fonctionne qu'avec
+// Internet Explorer 5.x exclusivement.)
+/////////////////////////////////////////////////////
+function basculer() 
+{ if (montrer == true) 
+  { document.all.imageQuiBascule.style.visibility 
+            = "hidden"
+    montrer = false
+  }
+  else 
+  { document.all.imageQuiBascule.style.visibility 
+            = "visible"
+    montrer = true
+  }
+
+  return true
+}
+
+// fin dissimulation -->
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H1>Cacher/montrer un élément d'un document</H1>
+En cliquant sur le bouton de façon répétitive, vous voyez
+disparaître puis réapparaître l'image. C'est le gestionnaire 
+d'événements <B>onClick</B> qui modifie pour cela la
+propriété <B>visibility</B> de l'élément en lui donnant
+alternativement les valeurs <B>hidden</B> et <B>visible</B>.
+<P>
+<SPAN ID="imageQuiBascule">
+<IMG NAME="animatedFace" SRC="neutre.gif" 
+     WIDTH="128" HEIGHT="128">
+</SPAN>
+<P>
+<INPUT TYPE="button" 
+       VALUE="Basculer entre visible et invisible" 
+       onClick="basculer()">
+</BODY>
+</HTML>

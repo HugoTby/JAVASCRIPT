@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>Petit diaporama</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Dissimuler le script
+/////////////////////////////////////////////////
+// La fonction permuter() construit un nom de fichier
+// d'après l'argument qui lui est passé puis
+// utilise ce nom pour afficher une vue du
+// diaporama.
+//
+// Note: c'est l'image initiale qui détermine la
+// taille du cadre du diaporama. Une image plus grande
+// serait tronquée pour ne pas sortir de ce cadre.
+/////////////////////////////////////////////////
+function permuter(nouvelleImage) 
+{ var nomDuFichier = nouvelleImage.toString() + ".gif"
+  document.all.diaporama.src = nomDuFichier
+}
+
+// arrêt de la dissimulation -->
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H1>Petit diaporama</H1>
+Cet exemple montre comment accéder au fichier source 
+d'une image à la suite d'un événement <B>onClick</B>,
+grâce à la propriété <B>src</B> de l'image.
+<P>
+<CENTER>
+<IMG NAME="diaporama" SRC="neutre.gif" 
+     WIDTH="128" HEIGHT="128">
+<P>
+
+<INPUT TYPE="button" VALUE="Image n°1"
+       onClick="permuter('1')">
+<INPUT TYPE="button" VALUE="Image n°2" 
+       onClick="permuter('2')">
+<INPUT TYPE="button" VALUE="Image n°3" 
+       onClick="permuter('3')">
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,82 @@
+<HEAD>
+   . . .
+<SCRIPT LANGUAGE="JavaScript">
+// Ce premier script définit le code nécessaire au
+// préchargement des images.
+function prechargerImages() /* Voir *1* */
+{ // Si le document HTML contient des images
+  if (document.images)      /* Voir *2* */
+  { // définir la variable fichiersImage comme un tableau
+    // contenant toutes les images qui seront passées en
+    // argument à la fonction prechargerImages().
+                            /* Voir *3* */
+    var fichiersImage = prechargerImages.arguments;
+
+    // Créer un nouveau tableau appelé prechargeTableau
+                            /* Voir *4* */
+    var prechargeTableau = new Array();
+
+    // Pour chaque fichier d'image file utilisé en 
+    // argument de la fonction prechargerImages()
+    // (Ici il y en a 13)
+    for (var i=0; i < fichiersImage.length; i++) 
+    { // Créer un nouvel objet Image dans le tableau
+      // prechargeTableau et l'associer à un fichier 
+      // d'image, ce qui entraînera le chargement de 
+      // l'image en mémoire.
+      prechargeTableau[i] = new Image;
+      prechargeTableau[i].src = fichiersImage[i];
+    }
+  }
+}
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#FFFFFF" LINK="#FFFFFF" 
+      VLINK="#CCCCFFF" ALINK="#CCCCFFF">
+
+<FRAMESET COLS="125, *" 
+          BORDER="0" 
+          FRAMESPACING="0" 
+          FRAMEBORDER="NO" 
+          FRAMEBORDER="0">
+
+<!-- Définition du fichier source, du nom et des
+     détails d'affichage pour le cadre de gauche
+-->
+    <FRAME SRC="pub_l.htm" 
+           NAME="leftnav" 
+           SCROLLING="AUTO" 
+           NORESIZE 
+           MARGINHEIGHT="0" 
+           MARGINWIDTH="0" 
+           LEFTMARGIN="0" 
+           TOPMARGIN="0" 
+           TARGET="body">
+
+<!-- Définition du fichier source, du nom et des
+     détails d'affichage pour le cadre de droite
+-->
+    <FRAME SRC="pub_c.htm" 
+           NAME="content" 
+           SCROLLING="AUTO" 
+           NORESIZE 
+           MARGINHEIGHT="0" 
+           MARGINWIDTH="0" 
+           LEFTMARGIN="0" 
+           TOPMARGIN="0" 
+           TARGET="body">
+</FRAMESET>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+// Préchargement de toutes les images utilisées 
+// dans ce fichier                /* Voir *5* */
+prechargerImages('logo.gif', 
+                 'logo.gif', 'logo.gif', 'logo.gif',
+                 'logo.gif', 'logo.gif', 'logo.gif',
+                 'logo.gif', 'logo.gif', 'logo.gif',
+                 'logo.gif', 'logo.gif', 'logo.gif');
+//-->
+</SCRIPT>
+

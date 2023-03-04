@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>Rafraîchissement automatique d'une page</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+// Cette variable globale est partagée par les deux 
+// fonctions définies ci-dessous.
+var chronoId
+
+</SCRIPT>
+</HEAD>
+<BODY onLoad="chronoId = 
+      setInterval('self.location.reload()', 10000)">
+<H1>Rafraîchissement automatique du contenu</H1>
+Le contenu de cette page va être automatiquement rafraîchi 
+toutes les dix secondes .
+<P>
+Pour arrêter le rafraîchissement, cliquez sur ce lien :
+<A HREF="javascript:clearInterval(chronoId)">
+Arrêter le rafraîchissement automatique</A>.
+</BODY>
+</HTML>

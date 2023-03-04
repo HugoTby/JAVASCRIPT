@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>Protection simplifiée par mot de passe</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+function demanderMotDePasse() 
+{ var MotDePasse = prompt("Donnez le mot de passe : "+"\('secret'\)", "xxxxx")
+
+  if (MotDePasse == "secret") 
+  { document.writeln("<BODY><H1>Félicitations !</H1>"
+    + "Vous avez donné le bon mot de passe. Vous "
+    + "pouvez tranquillement visiter notre site.</BODY>")
+  }
+  else 
+  { document.writeln("<BODY><H1>Désolé !</H1>"
+    + "Vous avez tenté d'accéder à notre site sans "
+    + "posséder le bon mot de passe. Cliquez sur le "
+    + 'bouton "Page précédente" de votre navigateur '
+    + "pour essayer une autre fois.</BODY>")
+  }
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY onLoad="demanderMotDePasse()">
+</BODY>
+</HTML>

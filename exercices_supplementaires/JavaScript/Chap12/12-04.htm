@@ -1,0 +1,41 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function changerCouleur(nouvelleCouleur) 
+{ document.all.UPCTR.style.color = nouvelleCouleur
+}
+
+</SCRIPT>
+
+<STYLE TYPE="text/css">
+/* ======================================================
+Définition d'un sélecteur appelé UPCTR qui centre
+le texte qui lui est associé et l'affiche en capitales.
+======================================================= */
+
+#UPCTR { color= red;
+         text-align: center;
+         text-transform: uppercase;
+       }
+</STYLE>
+
+</HEAD>
+
+<BODY>
+
+<H1>Modification dynamique de propriétés CSS</H1>
+
+<P ID="UPCTR">
+Ce paragraphe est affiché initialement en capitales rouges
+et centré parce qu'il est associé au sélecteur appelé UPCTR.
+</P>
+En cliquant sur les boutons ci-dessous, vous pouvez modifier
+la propriété color de ce sélecteur, donc la couleur
+d'affichage du texte.
+<P>
+<INPUT TYPE="button" VALUE="Afficher le texte en vert" 
+       onClick="changerCouleur('green')">
+<INPUT TYPE="button" VALUE="Afficher le texte en rouge" 
+       onClick="changerCouleur('red')">
+</BODY>
+</HTML>

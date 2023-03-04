@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>Insertion d'une applet Java dans une page Web</TITLE>
+</HEAD>
+
+<BODY>
+<!-- 
+Cette applet est mise gratuitement à la disposition des utilisateurs par JavaSoft. 
+-->
+<H1>Interaction avec une applet</H1>
+<P>
+Une fois qu'une applet Java est imbriquée dans une page Web, 
+vous pouvez appeler n'importe laquelle de ses méthodes.
+
+Par convention, toutes les applets reconnaissent les
+méthodes <B>start()</B> et <B>stop()</B>. La plupart
+en reconnaissent d'autres.
+
+<P>
+<APPLET CODEBASE="classes" 
+        CODE="JavaClock.class" 
+        WIDTH="150" HEIGHT="150">
+<PARAM NAME="bgcolor"    VALUE="FFFFFF"> 
+<PARAM NAME="border"     VALUE="5">
+<PARAM NAME="ccolor"     VALUE="dddddd">
+<PARAM NAME="cfont"      VALUE="TimesRoman|BOLD|18">
+<PARAM NAME="delay"      VALUE="100">
+<PARAM NAME="hhcolor"    VALUE="0000FF">
+<PARAM NAME="link"       VALUE="http://java.sun.com/">
+<PARAM NAME="mhcolor"    VALUE="00FF00">
+<PARAM NAME="ncolor"     VALUE="000000">
+<PARAM NAME="nradius"    VALUE="80">
+<PARAM NAME="shcolor"    VALUE="FF0000">
+</APPLET>
+
+<P>
+<FORM>
+<INPUT TYPE="button" VALUE="Arrêter la pendule" 
+       onClick="document.applets[0].stop()">
+
+<INPUT TYPE="button" VALUE="Démarrer la pendule" 
+       onClick="document.applets[0].start()">
+</FORM>
+
+</BODY>
+</HTML>

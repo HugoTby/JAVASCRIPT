@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>Script de validation de bon de commande</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+//////////////////////////////////////////////
+// Renvoie true si une valeur contient 
+// quelque chose ; false, sinon.
+//////////////////////////////////////////////
+function existe(valeurSaisie) 
+{ var caractereExiste = false
+
+  // Tester un par un les caractères saisis avec la
+  // méthode charAt() à la recherche de quelque chose
+  // qui ne soit pas un espace.
+
+  for (var i=0; i<=valeurSaisie.length; i++) 
+  { if (valeurSaisie.charAt(i) != " " && 
+        valeurSaisie.charAt(i) != "") 
+    { caractereExiste = true
+      break
+    }
+  }
+  return caractereExiste
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+<H1>Exemple de bon de commande</H1>
+Cliquez sur un champ de saisie et ensuite sur un autre
+(sans rien y taper) pour voir la fonction existe()
+au travail.
+<P>
+<FORM NAME="formulr">
+
+Prénom : 
+<INPUT TYPE="TEXT" NAME="prenom" SIZE="25" 
+       onBlur="if (!existe(this.value)) 
+               { alert('Indiquez votre prénom'); 
+               }"
+>
+<P>Nom :
+<INPUT TYPE="TEXT" NAME="nom" SIZE="35" 
+       onBlur="if (!existe(this.value)) 
+               { alert('Indiquez votre nom') 
+               }"
+>
+
+</FORM>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<TITLE>Date de dernière mise à jour</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+mois = new Array("janvier", "février", "mars",
+                 "avril", "mai", "juin", "juillet",
+                 "août", "septembre", "octobre",
+                 "novembre", "décembre")
+var maj = new Date(document.lastModified)
+document.write("Date de dernière mise à jour : " +
+               maj.getDay() + " " +
+               mois[maj.getMonth()] + " " +
+               maj.getFullYear() + "<P>")
+</SCRIPT>
+</HEAD>
+<BODY>
+<H2>Comment afficher la date de dernière mise à jour 
+d'une page Web</H2>
+Les visiteurs de votre site Web apprécieront de savoir de 
+quand date sa dernière mise à jour. Pourquoi les priver de 
+ce petit plaisir, alors que c'est si simple ?
+</BODY>
+</HTML>

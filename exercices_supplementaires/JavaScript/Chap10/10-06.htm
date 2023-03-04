@@ -1,0 +1,391 @@
+<HTML>
+<HEAD>
+<TITLE>Exemple de formulaire pour bon de commande</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Cacher le script
+
+////////////////////////////////////////////////////////////
+// Voir si un champ contient une valeur non numérique
+////////////////////////////////////////////////////////////
+function validerNombre(valeurSaisie)
+{ // Supposons que c'est bon
+  var resultat = true
+
+  // Si parseFloat() renvoie false, c'est qu'un caractère
+  // non numérique a été détecté en première position
+  if (!parseFloat(valeurSaisie)) 
+  { resultat = false
+  }
+
+  // Si ce n'est pas le cas, nous devons tester le reste
+  // des caractères un par un. Si l'un d'eux n'est pas 
+  // numérique, nous donnerons à resultat la valeur false.
+  else 
+  { for (var i=0; i<valeurSaisie.length; i++) 
+    { if (valeurSaisie.charAt(i) != " ") 
+      { if (!parseFloat(valeurSaisie.charAt(i))) 
+        { resultat = false
+          break
+        }
+      }
+    }
+  }
+
+  // Renvoie true (valeurSaisie est un nombre valide)
+  // ou false (nombre non valide).
+  return resultat
+}
+
+////////////////////////////////////////////////////////////
+// Teste une valeur pour voir si elle contient "@" et "."
+////////////////////////////////////////////////////////////
+function validerEmail(valeurSaisie) 
+{ var arobace = false
+  var point = false
+
+  // Rechercher l'occurrence de "@" et "."
+  for (var i=0; i<=valeurSaisie.length; i++) 
+  { if (valeurSaisie.charAt(i) == "@" ) 
+    { arobace = true
+    }
+    else if (valeurSaisie.charAt(i) == ".") 
+    { point = true
+    }
+  }
+  
+  // Si on a trouvé "@" et "." on suppose que
+  // l'adresse e-mail est correcte et on renvoie true. 
+  // Si ce n'est pas le cas, la fonction renvoie false.
+  if (arobace && point) 
+  { return true
+  }
+  else 
+  { return false
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Vérifier qu'une valeur saisie contient 10 chiffres
+// ou davantage. Cette approche permet à l'utilisateur
+// de saisir un numéro de téléphone américain comme
+// (123)456-7890, ou européen comme 123.456.7890.
+// (On pourra remarquer la curieuse idée que l'auteur
+// se fait de la structure des numéros de téléphone 
+// non américains - N.d.T.)
+////////////////////////////////////////////////////////////
+function validerTph(valeurSaisie) 
+{ var chiffresTrouves = 0
+
+  // Examiner la valeur saisie pour savoir combien
+  // de caractères elle contient
+  for (var i=0; i<=valeurSaisie.length; i++) 
+  { if (validerNombre(valeurSaisie.charAt(i))) 
+    { chiffresTrouves++
+    }
+  }
+  
+  // Si valeurSaisie contient au moins 10 caractères
+  // on supposera que le numéro de téléphone est OK.
+  if (chiffresTrouves >= 10) 
+  { return true
+  }
+  else 
+  { return false
+  }
+}
+
+////////////////////////////////////////////////////////////
+// Vérifier la présence de caractères qui ne soient pas
+// uniquement des espaces
+////////////////////////////////////////////////////////////
+
+function existe(valeurSaisie) 
+{ var carExiste = false
+
+  // Examiner valeurSaisie à l'aide de la méthode
+  // charAt() pour détecter des caractères qui ne
+  // soient pas des espaces
+  for (var i=0; i<=valeurSaisie.length; i++) 
+  { if (valeurSaisie.charAt(i) != " " && 
+        valeurSaisie.charAt(i) != "") 
+    { carExiste = true
+      break
+    }
+  }
+
+  return carExiste
+}
+
+
+////////////////////////////////////////////////////////////
+// Cette fonction effectue des vérifications d'ensemble 
+// sur la totalité des champs saisis.
+////////////////////////////////////////////////////////////
+function validerFormulaire() 
+{ var rc = true
+
+// Test dépendant n°1 : vérifier qu'une catégorie de 
+// service a bien été précisée.
+
+  //////////////////////////////////////////////////////
+  // Les visiteurs doivent sélectionner l'un des choix 
+  // des types de services suivants pour recevoir une 
+  // estimation précise : conception, maintenance ou 
+  // promotion.
+  ///////////////////////////////////////////////////////
+
+  if (!document.formulr.designChoice.checked &&
+      !document.formulr.maintChoice.checked &&
+      !document.formulr.promoChoice.checked) 
+  { alert("Indiquez quel type de service vous intéresse")
+    rc = false
+  }
+
+// Test dépendant n°2 : vérifier qu'un nom a bien 
+// été indiqué pour l'entreprise si le visiteur a
+// déclaré qu'il était employé.
+
+  /////////////////////////////////////////////////////////
+  // Il faut préciser le nom de son entreprise
+  // lorsqu'on n'est pas le patron d'une PME.
+  ////////////////////////////////////////////////////////
+  if (document.formulr.choixPro[1].checked) 
+  { if (!document.formulr.nomEntreprise.value) 
+    { alert("Vous avez indiqué que c'était une demande "+
+             "professionnelle. Vous devez alors indiquer " +
+             "le nom de votre entreprise.")
+      rc = false
+    }
+  }
+
+// Test dépendant n°3 : vérifier que le visiteur a bien
+// indiqué son nom ET son prénom.
+
+   /////////////////////////////////////////////////////////
+   // Il faut indiquer son nom ET son prénom.
+   /////////////////////////////////////////////////////////
+  if (!document.formulr.prenom.value || 
+       !document.formulr.nom.value) 
+  {  alert("Indiquez votre nom ET votre prénom.")
+     rc = false
+  }
+
+// Test dépendant n°4 : vérifier qu'un numéro de
+// téléphone ou une adresse e-mail a été donné.
+
+  /////////////////////////////////////////////////////////
+  // Il faut indiquer un numéro de téléphone
+  // ou une adresse e-mail
+  /////////////////////////////////////////////////////////
+  if (!document.formulr.choixEmail.checked &&
+      !document.formulr.choixTph.checked) 
+  { alert("Indiquez un numéro de téléphone " +
+           "ou une adresse e-mail.")
+    rc = false
+  }
+
+// Test dépendant n°5 : vérifier qu'une adresse e-mail
+// a bien été indiquée si c'est l'option choisie
+// par le visiteur. 
+
+  /////////////////////////////////////////////////////////
+  // Si le visiteur a dit qu'il voulait être contacté
+  // par e-mail et qu'il a oublié de donner son adresse
+  // e-mail.
+  /////////////////////////////////////////////////////////
+  if (document.formulr.choixEmail.checked && 
+      !validerEmail(document.formulr.emailAddr.value)) 
+  { alert("Nous ne pouvons pas vous contacter par e-mail "+
+          "si vous n'indiquez pas votre adresse e-mail.")
+    rc = false
+  }
+  else 
+  { if (document.formulr.choixTph.checked &&
+       !validerTph(document.formulr.numeroTph.value)) 
+    { alert("Nous ne pouvons pas vous contacter par " +
+            "téléphone si vous n'indiquez pas votre " +
+            "numéro d'appel.")
+    rc = false
+    }
+  }
+
+  if (rc) 
+  { // Si la variable rc vaut true, c'est que tout est bon
+    alert("Merci. Nous vous proposerons " +
+          "bientôt une estimation.")
+  }
+  return rc
+}
+// -->
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H1>Exemple de formulaire de bon de commande</H1>
+<HR>
+
+<TABLE WIDTH="100%" CELLSPACING="0" 
+       BORDER="0" CELLPADDING="10">
+<TR>
+<TD VALIGN="TOP">
+<FONT FACE="Arial, Helvetica, Verdana" SIZE="5">
+<CENTER>Demandez une estimation pour des services
+personnalisés concernant la conception ou la promotion
+Web effectuée par <B>Webmeister</B></CENTER>
+<BR>
+</FONT>
+<P>
+<FONT FACE="Arial, Helvetica, Verdana" SIZE="2">
+Chaque projet est différent, aussi ne pourrons-nous 
+vous donner une estimation financière précise que
+lorsque nous saurons à quoi nous en tenir concernant vos 
+projets en cette matière.
+<P>
+Cela dit, nous pouvons vous donner une fourchette de
+prix si vous répondez aux quelques questions qui suivent.
+Nous vous proposons de prendre contact avec nous par
+téléphone ou par e-mail.
+</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<HR>
+<TABLE WIDTH="100%" CELLSPACING="10" CELLPADDING="10" BORDER=0>
+<TR>
+<TD>
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+<FORM NAME="formulr" onSubmit="return validerFormulaire();">
+<P>
+<B>Par lequel de nos services êtes-vous intéressé ?</B> 
+(Cochez tous ceux qui vous intéressent)
+<P>
+Conception de site Web 
+<INPUT TYPE="CHECKBOX" NAME="designChoice" VALUE="design"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Maintenance de site Web 
+<INPUT TYPE="CHECKBOX" NAME="maintChoice" VALUE="maint">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Promotion en ligne
+<INPUT TYPE="CHECKBOX" NAME="promoChoice" VALUE="promo">
+<P>
+
+<B>Pourquoi voulez-vous un site Web ? (ou, si vous en avez
+déjà un, à quoi vous sert-il ?)
+</B>
+<P>
+<TEXTAREA NAME="but" COLS="60" ROWS="5" WRAP="VIRTUAL">
+</TEXTAREA>
+<P>
+<B>Voulez-vous des photos dans vos pages ?</B>
+<BR>
+oui 
+<INPUT TYPE="RADIO" NAME="photos" VALUE="desPhotos" CHECKED>
+non 
+<INPUT TYPE="RADIO" NAME="photos" VALUE="pasDePhotos">
+<P>
+<B>Y a-t-il un ou plusieurs produits dont vous souhaiteriez
+faire la promotion ou la vente sur votre site ?</B>
+<BR>
+oui 
+<INPUT TYPE="RADIO" NAME="cdChoice" 
+       VALUE="produits" CHECKED>
+non <INPUT TYPE="RADIO" NAME="cdChoice" VALUE="rien">
+<P>
+<B>Etes-vous le patron d'une PME ou travaillez-vous
+pour une grosse entreprise ?</B>
+<BR>
+Patron de PME
+<INPUT TYPE="RADIO" NAME="choixPro" VALUE="PME" CHECKED>
+Employé
+<INPUT TYPE="RADIO" NAME="choixPro" VALUE="employe"> 
+<P>
+<B>SI vous travaillez pour une grosse entreprise,
+quel est son nom ? </B> 
+<INPUT TYPE="TEXT" NAME="nomEntreprise" SIZE="25">
+<P>
+<B>Y a-t-il autre chose dont vous souhaiteriez nous
+informer pour que nous soyons en mesure de vous donner
+une estimation plus précise ?</B>
+<P>
+<TEXTAREA NAME="extraInfo" COLS="60" ROWS="5" WRAP="VIRTUAL">
+</TEXTAREA>
+<P>
+
+<TABLE>
+<TR>
+<TD>
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+<B>Votre prénom :</B> 
+</TD>
+<TD>
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+<B>Votre nom :</B>
+</TD>
+</TR>
+<TR>
+<TD>
+<INPUT TYPE="TEXT" NAME="prenom" SIZE="25" 
+    onBlur="if (!existe(this.value)) 
+    { alert('Indiquez votre prénom'); 
+    }">
+</TD>
+<TD>
+<INPUT TYPE="TEXT" NAME="nom" SIZE="35" 
+    onBlur="if (!existe(this.value)) 
+    { alert('Indiquez votre nom') 
+    }">
+</TD>
+</TR>
+<TR>
+</TR>
+<TR>
+<TD COLSPAN="2">
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+<B>De quelle façon préférez-vous que nous prenions
+contact avec vous (e-mail, téléphone ou les deux) ?</B>
+</FONT>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN="RIGHT">
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+e-mail
+<INPUT TYPE="CHECKBOX" NAME="choixEmail" VALUE="email">
+
+</FONT>
+</TD>
+<TD>
+
+<INPUT TYPE="TEXT" NAME="emailAddr" SIZE="35">
+</TD>
+</TR>
+<TR>
+<TD ALIGN="RIGHT">
+<FONT FACE="Helvetica, Arial, Verdana" SIZE="2">
+Téléphone 
+<INPUT TYPE="CHECKBOX" NAME="choixTph" VALUE="phone">
+</TD>
+
+<TD>
+<INPUT TYPE="TEXT" NAME="numeroTph" SIZE="15">
+</TD>
+</TR>
+</TABLE>
+<P>
+<CENTER>
+<INPUT TYPE="SUBMIT" VALUE="Envoyez vos données"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<INPUT TYPE="RESET" VALUE="Réinitialisez le formulaire">
+</CENTER>
+</FORM>
+<HR>
+</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

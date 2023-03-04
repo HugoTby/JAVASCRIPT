@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<TITLE>Arrêter une exécution répétitive</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+// Définition d'une variable globale
+var chronoId
+
+function demarrage() 
+{ chronoId = setTimeout('self.location.reload()', 3000)
+}
+
+function arret() 
+{ clearTimeout(chronoId)
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<H1>Rafraîchissement du contenu à la demande</H1>
+
+<FORM>
+<INPUT TYPE="button" 
+       VALUE="Cliquez ici pour rafraîchir la page après 3 secondes"
+       onClick="demarrage()">
+<P>
+<INPUT TYPE="button" 
+       VALUE="Cliquez ici pour arrêter le rafraîchissement automatique "
+onClick="arret()">
+
+</FORM>
+</BODY>

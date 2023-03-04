@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>Ouverture d'une nouvelle fenêtre</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+function ouvrirFenetre() 
+{ var nouvelleFenetre = 
+     open("14-02.htm", "secondeFenetre", 
+          "scrollbars,resizable,width=500,height=400");
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<H1>Ouverture d'une nouvelle fenêtre</H1>
+Vous pouvez créer une nouvelle fenêtre avec JavaScript
+et, soit :
+<UL>
+<LI>Garnir automatiquement cette fenêtre avec une page Web
+    existante dont vous indiquez l'URL.
+<LI>Composer au vol le contenu de cette fenêtre.
+</UL>
+<FORM>
+<INPUT TYPE="button" VALUE="Ouvrir une fenêtre" 
+       onClick="ouvrirFenetre()">
+</FORM>
+</BODY>
+</HTML>

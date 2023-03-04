@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>Animation simple en bascule</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Dissimuler le script
+// Déclaration des variables globales
+var quelleImage = 1
+
+function animer() 
+{ 
+    if (quelleImage == 1) 
+         imageSuivante = "surpris.gif"
+    else 
+         imageSuivante = "neutre.gif"
+
+    document.all.smiley.src = imageSuivante
+    
+    quelleImage*=-1
+
+    setTimeout("animer()", 1000)
+}
+
+// fin de la dissimulation -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY onLoad="animer()">
+<H1>Animation simple en bascule</H1>
+
+<!--Dimensions de l'image animée-->
+<IMG NAME="smiley" SRC="neutre.gif" 
+          WIDTH="128" HEIGHT="128">
+
+</BODY>
+</HTML>

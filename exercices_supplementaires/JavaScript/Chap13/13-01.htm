@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>
+Enregistrement du temps écoulé entre deux événements
+</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+// Variables globales (à l'extérieur de toute fonction)
+// pour être accessibles à partir de toutes les fonctions.
+
+var momentInitial
+var momentFinal
+
+function debutChrono() 
+{ momentInitial = new Date();
+}
+
+function arretChrono() 
+{ momentFinal = new Date();
+
+  var tempsEcoule = momentFinal - momentInitial;
+  alert("Vous avez passé exactement " +
+        (tempsEcoule/1000) + 
+        " secondes à regarder le contenu de cette page" +
+        " avant de cliquer sur le bouton.")
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY onLoad="debutChrono()">
+<H1>Chronométrage avec JavaScript</H1>
+Ce script chronomètre le temps qu'il vous a fallu pour 
+cliquer sur ce bouton depuis la fin du chargement de la
+page.
+<P>
+L'envoi du contenu de la variable <B>tempsEcoule</B> 
+au serveur Web vous permet de faire une statistique du
+temps pendant lequel vos visiteurs contemplent votre page.
+<FORM>
+<INPUT TYPE="button" 
+       VALUE="Cliquez ici pour arrêter le chronométrage" 
+       onClick="arretChrono()">
+</FORM>
+</BODY>
+</HTML>

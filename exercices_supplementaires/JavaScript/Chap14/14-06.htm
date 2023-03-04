@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>Détection des plugins</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+/////////////////////////////////////////////////
+// La fonction detectPlugins()détecte les plugins
+// téléchargés et installés dans Netscape Navigator
+/////////////////////////////////////////////////
+function detectPlugins()
+{ if (navigator.plugins.length > 0) 
+  { alert(navigator.plugins.length + 
+          " plugin(s) détecté(s)")
+  }
+  else 
+  { alert("Aucun plugin détecté." +
+          "\nSouvenez-vous que Internet Explorer " +
+          "ne reconnaît pas les plugins")
+  }
+
+  // Avec Netscape Navigator, il existe un autre moyen 
+  // de détecter les plugins, c'est d'examiner le contenu
+  // du tableau mimeTypes[] array de cette façon :
+  //   if (navigator.mimeTypes["application/pdf"] != null)
+  // 
+  // Vous pouvez aussi interroger le navigateur au sujet
+  // d'un plugin particulier, de cette façon :
+  //   if (navigator.plugins["Shockwave"] != null)
+}
+
+/////////////////////////////////////////////////
+// La fonction detectEmbeds() détecte ce qui est
+// inclus dans une page Web au moyen des balises 
+// <EMBED> ou <OBJECT>.
+//
+// La longueur du tableau document.embeds[]
+// représente le nombre des objets contenus
+// dans une page Web.
+//
+// L'existence de propriétés supplémentaires embeds[] 
+// dépend de l'implémentation de chaque objet inclus.
+/////////////////////////////////////////////////
+function detectEmbeds() 
+{ if (document.embeds.length > 0) 
+  { alert(document.embeds.length + 
+          " élément(s) inclus détecté(s).")
+}
+  else 
+  { alert("Aucun élément inclus n'a été détecté.")
+  }
+}
+
+/////////////////////////////////////////////////
+// La fonction detectApplets() détecte les applets
+// Java incluses dans une page Web au moyen d'une 
+// balise <APPLET>.
+//
+// La longueur du tableau document.applets[]
+// représente le nombre d'objets inclus dans une
+// page Web.
+/////////////////////////////////////////////////
+function detectApplets() 
+{ if (document.applets.length > 0) 
+  { alert(document.objects.length + 
+          " applet(s) Java détectée(s).")
+  }
+  else 
+  { alert("Aucune applet Java n'a été détectée.")
+  }
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H1>Détection des plugins</H1>
+Le "player" audio que vous voyez ci-dessous est
+inclus dans Windows. Il se trouve inclus dans cette
+page au moyen de la balise <B>&lt;EMBED&gt;</B>.
+<P>
+<!-- A l'attention des utilisateurs de Windows NT 
+et de Windows 2000 :
+
+Remplacez la valeur de SRC ci-dessous par 
+     "c:\winnt\media\canyon.mid
+-->
+
+<EMBED SRC="c:\windows\media\chimes.wav" 
+       CONTROLS="console" HEIGHT="260" WIDTH="345">
+</EMBED>
+
+<P>
+<FORM>
+<INPUT TYPE="button" VALUE="Détection des objets inclus" 
+       onClick="detectEmbeds()">
+
+<INPUT TYPE="button" VALUE="Détection des plugins" 
+       onClick="detectPlugins()">
+
+<INPUT TYPE="button" VALUE="Détection des applets" 
+       onClick="detectApplets()">
+</FORM>
+</BODY>
+</HTML>
