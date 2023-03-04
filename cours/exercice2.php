@@ -10,4 +10,4 @@
 <body>
     <h1 style="text-align: center;color:orange">Exercice 2 sur le JavaScript</h1>
 </body>
-</html>
+</html> 
