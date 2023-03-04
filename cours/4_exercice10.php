@@ -22,22 +22,22 @@
             Survole moi !
         </div>
         <div id="Methode3" class="divD" tabindex="0">
-            Appui au clavier
+            Appuie au clavier
         </div>
     </div>
 
     <h3 style="text-align: center;color:orange">Première question</h3>
     <div class="divA">
         <div id="Methode4" class="class1">
-            Cette div changera de couleur si vous appuyer dessus !
+            Cette div changera de couleur si tu appuies dessus !
         </div>
     </div>
- 
+
 
     <h3 style="text-align: center;color:orange">Deuxième question</h3>
     <div class="divA">
         <div id="Methode5" class="class1">
-            coucou
+            Clique pour me faire disparaitre
         </div>
     </div>
 
