@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<TITLE>Gestionnaire d'événements pour les éléments 
+       HTML button et radio</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+/////////////////////////////////////////////////////////
+// Vous pouvez modifier ce script pour tester n'importe
+// quel gestionnaire d'événements associé à un élément
+// HTML de type button. (Vous trouverez une liste des
+// gestionnaires d'événements concernés au Chapitre 7.
+//
+// Pour tester le gestionnaire de l'événement onDblClick, 
+// par exemple, remplacez dans la déclaration du bouton
+// HTML :
+//
+// onClick="showEvent(this, 'click')"
+//
+// par
+//
+// onDblClick="showEvent(this, 'double click')"
+/////////////////////////////////////////////////////////
+
+function showEvent(bouton) 
+{ alert("Vous avec cliqué sur l'élément " + bouton.type + 
+        " appelé : " + bouton.value)
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<FORM NAME="monFormulr">
+<H1>Eléments HTML de type button</H1>
+<P>
+Cet exemple vous montre comment attacher des gestionnaires
+d'événements à des éléments HTML de type "button" ou "radio"
+au moyen d'instructions JavaScript.
+<P>
+<HR>
+Un<B> bouton poussoir</B> peut déclencher une action.
+<P>
+<INPUT TYPE="button" NAME="pushButton" VALUE="Cliquez ici" 
+       onClick="showEvent(this)">
+<P>
+<HR>
+<P>
+Les<B> boutons radio</B> n'autorisent qu'un seul choix.
+<P>
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonUn" 
+       onClick="showEvent(this)"> Button n° 1
+
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonDeux" 
+       onClick="showEvent(this)"> Button n° 2
+
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonTrois" 
+       onClick="showEvent(this)"> Button n° 3
+
+</FORM>
+</BODY>
+</HTML>

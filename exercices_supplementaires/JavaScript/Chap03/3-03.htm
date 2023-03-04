@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>Exemple de fonction utilisateur</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function validerSaisie(nombre)
+{ if (nombre > 0 && nombre < 100)
+  { // Si la valeur passée à la fonction est comprise 
+    // entre 0 et 100 - bornes exclues - afficher un 
+    // message de félicitations.
+    alert("Vous avez saisi un nombre correct (compris " +
+          "entre 0 et 100).")
+    return true
+  }
+  // Si la valeur saisie est négative, nulle ou supérieure 
+  // ou égale à 100, afficher un message d'erreur.
+  alert ("La valeur que vous avez saisie n'est pas " +
+         "correcte. (Elle est négative, nulle ou " +
+         "supérieure à 99.)\nEssayez encore.")
+  return false
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+   . . .
+<FORM NAME="formulr">
+Saisissez une valeur : 
+   <INPUT TYPE="text" SIZE="5" NAME="valeur">
+<P>
+  . . .
+<P>
+<INPUT TYPE="button" 
+       VALUE="Cliquez ici pour valider votre saisie"
+       onClick=
+         "validerSaisie(document.formulr.valeur.value)">
+</FORM>
+</BODY>
+</HTML>

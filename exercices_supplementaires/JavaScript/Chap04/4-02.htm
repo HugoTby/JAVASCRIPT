@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>"Renifleur" de navigateur</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+function Is () 
+{ 
+   . . .
+
+} // Fin de la déclaration de la fonction Is().
+
+var is; 
+var isIE3Mac = false;  
+
+// Cette section concerne spécialement IE3 pour le Mac 
+
+if ((navigator.appVersion.indexOf("Mac")!=-1) && 
+    (navigator.userAgent.indexOf("MSIE")!=-1) && 
+    (parseInt(navigator.appVersion)==3)) {
+        isIE3Mac = true; 
+}
+else 
+{ is = new Is(); 
+
+  var builtInScroll
+  if (is.ie3up || is.ie4up || is.ie5up) 
+  { // La balise <MARQUEE> est reconnue. 
+    // Vous pouvez donc l'utiliser.
+
+    builtInScroll = '<FORM NAME="myForm"><MARQUEE ID=abc DIRECTION=LEFT? BEHAVIOR=SCROLL SCROLLAMOUNT=2>'
+    builtInScroll +='JavaScript pour les Nuls</MARQUEE><INPUT ? TYPE="button" VALUE="Début du défilement"'
+    builtInScroll +='NAME="startscroll" ? onClick="document.all.abc.start()"><INPUT TYPE="button"'
+    builtInScroll +='VALUE="Arrêt du ? défilement" NAME="stopScroll" onClick="document.all.abc.stop()"></FORM>'; 
+  // onClick="document.getElementById('abc').stop()"></FORM>';
+
+  }
+
+  else 
+  { // Afficher un titre immobile
+    builtInScroll = '<CENTER>
+    <H1>JavaScript pour les Nuls</H1></CENTER>'
+  }
+
+  document.write(builtInScroll)
+
+}

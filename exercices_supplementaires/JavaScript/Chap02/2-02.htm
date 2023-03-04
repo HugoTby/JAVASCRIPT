@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Générateur de proverbe en JavaScript</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Cacher cette partie du fichier pour les navigateurs 
+//   qui ne reconnaissent pas JavaScript
+
+// Début du script JavaScript
+function afficherProverbe(nom, adjectif)
+{ /*====================================================
+      Le rôle de cette fonction est de construire un
+      proverbe personnalisé en insérant deux mots
+      saisis par l'utilisateur dans un squelette de
+      proverbe. Cette fonction accepte deux arguments
+      et ne renvoie aucune valeur.
+      ==================================================*/
+  // Si l'utilisateur n'a pas saisi de nom, prendre 
+  // "fer" par défaut
+  if (! nom) 
+  { nom = "fer"}
+
+  // Si l'utilisateur n'a pas saisi d'adjectif, prendre
+  // "chaud" par défaut
+  if (! adjectif) 
+  { adjectif = "chaud"}
+
+  // Construire le proverbe et l'afficher dans une boîte
+  // de message
+  window.alert("Il faut battre le "
+               + nom
+               + " quand il est "
+               + adjectif
+               + " !")
+}
+// fin du script JavaScript 
+// et fin de la dissimulation du code -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Générateur de proverbe en JavaScript</H1>
+</CENTER>
+Pour générer un proverbe, saisissez un nom et un adjectif,
+tous deux masculins, puis cliquez sur le bouton "Proverbe" 
+que vous pouvez voir ci-dessous.
+<P>
+Si vous faites une erreur ou que vous vouliez simplement 
+recommencer, cliquez sur le bouton "Effacer".
+<P>
+<FORM NAME="formu">
+Nom : <INPUT NAME="un_nom", SIZE="25">
+<P>
+Adjectif : <INPUT NAME="un_adjectif", SIZE="25">
+<P>
+<INPUT TYPE="button" NAME="lancer" VALUE="Proverbe"
+   onClick=
+    "afficherProverbe(document.formu.un_nom.value,
+                      document.formu.un_adjectif.value)">
+
+<INPUT TYPE="button" NAME="effacer" VALUE="Effacer">
+</FORM>
+</BODY>
+</HTML>

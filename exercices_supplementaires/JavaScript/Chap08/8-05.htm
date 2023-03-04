@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+
+<TITLE>Images réactives</TITLE>
+</HEAD>
+<BODY BGCOLOR="black" TEXT="white">
+<H2>Une image, plusieurs gestionnaires d'événements</H2>
+Déplacez le pointeur de votre souris sur les différentes 
+parties de cette image et vous verrez s'afficher différents 
+messages dans la barre d'état de votre navigateur.
+<P>
+<HR>
+<P>
+<CENTER>
+<IMG src="splash.jpg" 
+     width=241 height=208 
+     useMap=#newsplash border=0> 
+
+<MAP name=newsplash>
+  <AREA 
+    onMouseOver="document.formulr.zone.value=
+                'Ecrire pour le Web'; return true" 
+    onMouseOut="document.formulr.zone.value=''"
+    shape=POLY 
+    coords="1,2,1,46,78,48,80,197,240,201,239,18,93,12,94,2" 
+    HREF="javascript:void(0)"
+  >
+  <AREA 
+    onMouseOver="document.formulr.zone.value=
+                'VENDRE votre travail'" 
+    onMouseOut="document.formulr.zone.value=''" 
+    shape=RECT 
+    coords="216,0,241,16"
+    HREF="javascript:void(0)"
+  >
+  <AREA 
+    onMouseover="document.formulr.zone.value=
+                'PROMOUVOIR votre travail'" 
+    onMouseout="document.formulr.zone.value=''" 
+    shape=RECT 
+    coords="149,0,209,15"
+    HREF="javascript:void(0)"
+  >
+  <AREA 
+    onMouseOver="document.formulr.zone.value=
+                'PUBLIER votre travail'" 
+    onMouseOut="document.formulr.zone.value=''" 
+    shape=RECT 
+    coords="94,0,140,14"
+    HREF="javascript:void(0)"
+  >
+</MAP>
+<FORM NAME="formulr">
+<INPUT TYPE="text" NAME="zone" SIZE="25" VALUE="">
+</FORM>
+</CENTER>
+</BODY>
+</HTML>

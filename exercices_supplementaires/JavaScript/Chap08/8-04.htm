@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+
+<TITLE>Images réactives</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="black" TEXT="white">
+<H2>Une image, plusieurs gestionnaires d'événements</H2>
+Déplacez le pointeur de votre souris sur les différentes 
+parties de cette image et vous verrez s'afficher différents 
+messages dans la barre d'état de votre navigateur.
+<P>
+<HR>
+<P>
+<CENTER>
+<IMG src="splash.jpg" 
+     width=241 height=208 
+     useMap=#newsplash border=0> 
+
+<MAP name=newsplash>
+  <AREA 
+    onMouseOver=
+       "window.status='Ecrire pour le Web'; return true" 
+    onMouseOut="window.status=''; return true"
+    shape=POLY 
+    target=_top 
+    coords=1,2,1,46,78,48,80,197,240,201,239,18,93,12,94,2 
+  >
+  <AREA 
+    onMouseOver=
+       "window.status='VENDRE votre travail'; return true" 
+    onMouseOut="window.status=''; return true" 
+    shape=RECT 
+    target=_top 
+    coords=216,0,241,16
+  >
+  <AREA 
+    onMouseover=
+     "window.status='PROMOUVOIR votre travail'; return true" 
+    onMouseout="window.status=''; return true" 
+    shape=RECT 
+    target=_top 
+    coords=149,0,209,15
+  >
+  <AREA 
+    onMouseOver=
+       "window.status='PUBLIER votre travail'; return true" 
+    onMouseOut="window.status=''; return true" 
+    shape=RECT 
+    target=_top 
+    coords=94,0,140,14
+  >
+</MAP>
+</CENTER>
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>Second exemple de cookie</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+function getCookieVal (offset) 
+{ var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1) 
+  { endstr = document.cookie.length;
+  }
+
+  return unescape
+      (document.cookie.substring(offset, endstr));
+}
+
+function getCookie (name)  
+{ // Il faut extraire le texte contenu dans le cookie.  
+  var arg = name + "=";  
+
+  var argLength = arg.length;
+  var cookieLength = document.cookie.length;
+
+  var i = 0;
+  while (i < cookieLength)  
+  { var j = i + argLength;
+    if (document.cookie.substring(i, j) == arg) 
+    { return getCookieVal(j)
+      i = document.cookie.indexOf(" ", i) + 1;
+    }
+    if (i == 0) 
+    { break
+    }
+  } 
+  return null;
+}
+
+
+/////////////////////////////////////////////////////////
+// Ce code recherche un cookie du nom de 'monCookie'
+// sur la machine de l'utilisateur.
+//
+// S'il existe, c'est que l'utilisateur s'est déjà
+// enregistré et on peut afficher la page réservée.
+//
+// Sinon, il faut afficher un message d'erreur.
+//////////////////////////////////////////////////////////
+
+// Si le cookie "monCookie" existe...
+
+var nomDuVisiteur = getCookie('monCookie')
+
+if(nomDuVisiteur != null) 
+{ var documentText = 
+       "<BODY><H1>Second exemple de cookie</H1>"
+  documentText += 
+       "Bienvenue sur la partie réservée de mon site Web, "
+  documentText += nomDuVisiteur
+  documentText += " !</BODY>"
+}
+
+else 
+{ var documentText = 
+         "<BODY><H1>Second exemple de cookie</H1>"
+  documentText += 
+         "Désolé(e), seuls les visiteurs enregistrés " +
+         "peuvent accéder à cette page."
+    documentText += "</BODY>"
+}
+
+document.write(documentText)
+
+</SCRIPT>
+</HEAD>
+</HTML>

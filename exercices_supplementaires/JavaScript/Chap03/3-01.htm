@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>Appel d'une méthode</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function welcome() 
+{ 
+document.write(afficherProprietes(document, "document"))
+
+}
+
+function afficherProprietes(objet, nomObjet)
+{ // Initialiser le futur résultat avec une chaîne vide
+  var resultat = ""
+
+  // Pour chaque propriété de l'objet passé en argument
+  for (var chaquePropriete in objet) 
+     // Associer le nom de l'objet, le nom de la propriété,
+     // et la valeur de la propriété et les placer dans 
+     // la variable du résultat.
+  { resultat += nomObjet + "." + chaquePropriete + " = "
+                + objet[chaquePropriete] + "<BR>"
+  }
+  return resultat
+}
+
+
+</SCRIPT>
+</HEAD>
+<BODY onLoad="welcome()">
+
+</BODY>
+</HTML>

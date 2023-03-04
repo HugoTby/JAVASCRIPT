@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>Exemple de script de bon de commande</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var nombreDeVistemboirs
+
+function clearGlobalValues() 
+{ //////////////////////////////////////////////////////////
+  // Initialiser la variable globale avec une chaîne vide.
+  //////////////////////////////////////////////////////////
+
+    nombreDeVistemboirs=""
+}
+
+function verifierCommande() 
+{ //////////////////////////////////////////////////////////
+  // Si quelque chose a bien été commandé, envoyer le 
+  // formulaire. Sinon, ne rien faire.
+  //////////////////////////////////////////////////////////
+
+  if (nombreDeVistemboirs == "" || 
+      nombreDeVistemboirs == null || 
+      nombreDeVistemboirs == 0) 
+      { alert
+      ("Indiquez le nombre de vistemboirs que vous "
+       + "commandez \npuis cliquez à nouveau sur "
+       + "le bouton Envoyer")
+        return false
+      }
+  else
+  { alert("Merci pour votre commande")
+    return true
+  }
+}
+
+function calculDuPrix() 
+{ //////////////////////////////////////////////////////////
+  // Donner à la variable globale "nombreDeVistemboirs" 
+  // la valeur saisie par l'utilisateur (à moins qu'il 
+  // n'ait précédemment  saisi une valeur).
+  //////////////////////////////////////////////////////////
+
+  if (!nombreDeVistemboirs) 
+  { nombreDeVistemboirs = 
+      document.monFormulr.nombreDeVistemboirs.value
+  }
+
+  alert("Le prix total est : " 
+        + (nombreDeVistemboirs * 49) + " francs.")
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY>
+<FORM NAME="monFormulr" 
+      onSubmit="return verifierCommande()" 
+      onReset="clearGlobalValues()">
+
+<H2>Exemple de formulaire de bon de commande</H2>
+<FONT SIZE="2">
+<OL>
+<LI>Saisissez un <B>nom</B> et un <B>nombre</B> ci-dessous.
+<LI>Cliquez sur une des <B>options d'expédition</B> pour
+    voir le gestionnaire d'événements onFocus à l'oeuvre.
+<LI>Cliquez sur le bouton <B>Calculer le total</B> pour
+    voir le gestionnaire d'événements onClick à l'oeuvre.
+<LI>Cliquez sur le <B>bouton Envoyer</B> pour voir le 
+    gestionnaire d'événements onSubmit à l'oeuvre.
+<LI>Saisissez un autre <B>nom</B> et un autre <B>nombre</B>.
+<LI>Cliquez sur le <B>bouton Réinitialiser</B> pour voir le 
+    gestionnaire d'événements onReset à l'oeuvre.
+</OL>
+</FONT>
+<HR>
+Votre nom :
+<INPUT TYPE="text" 
+       SIZE="15" 
+       NAME="nomClient">
+<P>
+Nombre de vistemboirs à acheter (à 49 francs l'un) :
+<INPUT TYPE="text" 
+       SIZE="3" 
+       NAME="nombreDeVistemboirs">
+<P>
+<INPUT TYPE="radio" 
+       NAME="modeDEnvoi" 
+       VALUE="ordinaire" 
+       onFocus="alert
+            ('Cet envoi est effectué franco de port')"> 
+Colis ordinaire
+<INPUT TYPE="radio" 
+       NAME="modeDEnvoi" 
+       VALUE="ordinaire" 
+       onFocus="alert
+            ('Ce mode d\'expédition n\'est pas possible ' +
+             'pour l\'étranger')"> 
+Envoi recommandé
+<P>
+<INPUT TYPE="button"  
+       NAME="calcTotal" 
+       VALUE="Calculer le total" 
+       onClick="calculDuPrix()">
+<INPUT TYPE="submit" 
+       VALUE="Envoyer">
+<INPUT TYPE="reset"
+       VALUE="Réinitialiser">
+</FORM>
+</BODY>
+</HTML>

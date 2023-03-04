@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>Mise en forme d'une date</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var aujourdhui = new Date()
+var heure = aujourdhui.getHours()
+var minutes = aujourdhui.getMinutes()
+var salutation
+
+// Nous dirons que de 1 heure du matin jusqu'à midi
+// (non compris), c'est le matin.
+if (heure <= 11) 
+{ salutation = "Bonjour !"
+}
+
+// Nous dirons que l'après-midi va de midi à 17 
+else if (heure > 11 && heure < 18) 
+{ salutation = "Bonne après-midi !"
+}
+
+// Nous dirons que la soirée va de 18 h à 20 h  
+else if (heure > 17 && heure < 21) 
+{ salutation = "Bonne soirée !"
+}
+
+// Nous dirons que de 21 h à minuit, c'est la nuit
+else if (heure > 20) 
+{ salutation = "Bonne nuit !"
+}
+
+// Nous voulons que les minutes soient affichées sur deux
+// chiffres. Aussi ajouterons-nous un zéro à toute valeur
+// inférieure à 10.
+
+if (minutes < 10) 
+{ minutes = "0" + minutes
+}
+
+document.write(salutation + "\nIl est " + heure 
+               + " h " + minutes);
+
+</SCRIPT>
+</HEAD>
+<BODY>
+
+</BODY>
+</HTML>

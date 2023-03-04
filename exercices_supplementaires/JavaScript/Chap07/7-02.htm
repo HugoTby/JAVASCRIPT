@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>Eléments HTML reset et submit</TITLE>
+</HEAD>
+<BODY>
+<FORM NAME="monFormulr" 
+    onReset="alert('Vous avez cliqué sur Réinitialiser')" 
+    onSubmit="alert('Vous avez cliqué sur Envoyer')">
+<H1>Eléments HTML de type Bouton</H1>
+<HR>
+Les<B> boutons radio</B> ne permettent qu'un seul choix.
+<P>
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonUn"> 
+Bouton n° 1
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonDeux"> 
+Bouton n° 2
+<INPUT TYPE="radio" NAME="radioGroup" VALUE="boutonTrois"> 
+Bouton n° 3
+<HR>
+Un<B> bouton Submit</B> envoie automatiquement le contenu
+d'un formulaire au script CGI défini dans la balise 
+&lt;FORM&gt;.S'il n'y en a aucun, le document HTML est 
+simplement rechargé.
+<P>
+<INPUT TYPE="submit" 
+       NAME="boutonSubmit" 
+       VALUE="Envoyer">
+<P>
+<HR>
+Un<B> bouton Reset</B> permet à l'utilisateur d'effacer 
+toutes ses saisies et de repartir de zéro.
+<P>
+<INPUT TYPE="reset" 
+       NAME="boutonReset" 
+       VALUE="Réinitialiser">
+</FORM>
+</BODY>
+</HTML>

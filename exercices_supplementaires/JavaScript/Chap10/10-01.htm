@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+
+<TITLE>Validation de saisies</TITLE>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+/////////////////////////////////////////////////////////
+// Toute adresse e-mail doit contenir un point et le
+// caractère "@". Cette fonction recherche ces deux
+// caractères. S'ils existent, l'adresse est présumée
+// valide. Sinon, l'utilisateur reçoit un message lui
+// demandant de recommencer sa saisie.
+/////////////////////////////////////////////////////////
+
+function testAdresseEmail(valeur) 
+{ var arobace = false
+  var point = false
+  var positionArobace = -1
+  var positionPoint = -1
+
+  // Examiner un à un les caractères de la saisie 
+  // et positionner un indicateur lorsqu'un
+  // "." et un "@" ont été détectés.
+  for (var i=0; i<=valeur.length; i++) 
+  { if (valeur.charAt(i) == "@" ) 
+    { arobace = true
+      positionArobace = i
+    }
+    else if (valeur.charAt(i) == ".") 
+    { point = true
+      positionPoint = i
+    }
+  }
+
+  // Si ces deux caractères ont été trouvés dans le
+  // bon ordre (il y a un point après l'arobace) :
+  if ((arobace && point) && 
+      (positionArobace < positionPoint)) 
+  { // L'adresse est correcte.
+    alert("Votre adresse e-mail est correcte.")
+    return true
+  }
+  else 
+  { // L'adresse e-mail n'est pas correcte
+    alert("L'adresse e-mail que vous avez saisie " +
+          "est incorrecte\n Recommencez.")
+    return false
+  }
+}
+
+</SCRIPT>

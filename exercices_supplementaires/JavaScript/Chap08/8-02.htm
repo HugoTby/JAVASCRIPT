@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+
+<TITLE>Utilisation de gestionnaires d'événements 
+       pour créer des images réactives</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="black" TEXT="white">
+<H1>Création d'images réactives</H1>
+En promenant votre souris sur l'image, un message 
+sera affiché dans la barre d'état, au bas de la fenêtre 
+du navigateur. En cliquant n'importe où dans l'image,
+un message sera affiché dans une boîte alert().
+<P>
+<HR>
+<P>
+<CENTER>
+
+<IMG SRC="splash.jpg" HEIGHT=208 WIDTH=241
+   onClick="alert('Writing for the Web est une ressource' +
+      '\nen ligne pour les auteurs professionnels' +
+      '\nles aidant à publier, promouvoir et vendre' +
+      '\nleurs oeuvres en ligne.')"
+   TITLE="Ressources essentielles pour l'auteur 
+          confirmé ou débutant."
+   ALT="Writing for the Web"
+   onMouseOver="window.status=
+      'Cliquez pour en savoir davantage à notre sujet.'"
+   onMouseOut="window.status=''"
+>
+</CENTER>
+</BODY>
+</HTML>

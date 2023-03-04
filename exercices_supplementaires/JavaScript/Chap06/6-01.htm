@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE>Premier exemple de Cookie : 
+       La page d'enregistrement)</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+function getCookieVal (offset) 
+{ // Cette fonction renvoie la partie de la chaîne
+  // "monCookie=userName'" située entre "=" et ";"
+  var endstr = document.cookie.indexOf (";", offset);
+
+  if (endstr == -1) 
+  { endstr = document.cookie.length;
+  }
+  return 
+     unescape(document.cookie.substring(offset, endstr));
+}
+
+function getCookie (cookieName)  
+{ // Nous devons isoler le texte du cookie. Pour cela, nous
+  // commençons par rechercher le nombre de caractères
+  // présents dans la chaîne de caractères "monCookie="
+
+  var arg = cookieName + "=";  
+  var argLength = arg.length;
+
+  // Longueur du cookie
+  var cookieLength = document.cookie.length;
+
+  // Nous devons maintenant explorer caractère par 
+  // caractère le contenu du cookie pour récupérer celui 
+  // qui nous intéresse
+
+  var i = 0;
+
+  // Tant que le compteur "i" est inférieur au nombre de
+  // caractères du cookie...
+  while (i < cookieLength)  
+  { // Décaler le compteur "j" du nombre de caractères de
+    // "monCookie=".
+    var j = i + argLength;
+
+    // Si on trouve "monCookie=" dans le cookie
+    if (document.cookie.substring(i, j) == arg) 
+    { // renvoyer la valeur qui lui est associée
+      return getCookieVal(j)
+    }
+    // i = document.cookie.indexOf(" ", i) + 1;
+    //}
+    if (i == 0) 
+    { break
+    }
+  } 
+  return null;
+}
+
+function setCookie(name, value) 
+{ // Capturer tous les arguments passés à la fonction 
+  // setCookie()
+
+  var argv = setCookie.arguments;
+
+  // Nombre d'arguments passés à cette fonction 
+  var argc = setCookie.arguments.length;
+
+  // Normalement, le 3ème argument est la date 
+  // d'expiration. Si ce n'est pas le cas, on donne 
+  // à la variable expires la valeur null.
+  // (Alors, le cookie sera considéré comme temporaire.)
+  var expires = (argc > 2) ? argv[2] : null;
+
+  // Normalement, le 4ème argument est le chemin d'accès.
+  // Si ce n'est pas le cas, on donne à la variable path 
+  // la valeur null. 
+  var path = (argc > 3) ? argv[3] : null;
+
+  // Normalement, le 5ème argument est le nom de domaine.
+  // Si ce n'est pas le cas, on donne à la variable 
+  // domain la valeur null. 
+  var domain = (argc > 4) ? argv[4] : null;
+
+  // Normalement, le 6ème argument est true ou false selon 
+  // que le cookie est sécurisé ou non. Sécurisé signifie 
+  // qu'il ne peut être transmis à un serveur sécurisé 
+  // que par https.
+  // Si ce n'est pas le cas, on donne à la variable 
+  // secure la valeur false. 
+  var secure = (argc > 5) ? argv[5] : false;
+
+  // Définition du cookie
+  document.cookie = name + "=" + escape(value) + 
+        ((expires == null) ? "" : ("; expires=" +
+        expires.toGMTString())) + 
+        ((path == null) ? "" : ("; path=" + path)) + 
+        ((domain == null) ? "" : ("; domain=" + domain)) + 
+        ((secure == true) ? "; secure" : "");
+}
+
+function register(userName, value) 
+{ if (userName == "" || userName == null) 
+  { // Pas de nom d'utilisateur. Celui-ci sera donc 
+    // enregistré en tant que "Unknown User" 
+    // (utilisateur inconnu)"
+    userName = "Unknown User"
+  }
+
+  // S'il n'existe aucun cookie du nom de 'monCookie'...
+  if(getCookie('monCookie') == null) 
+  { // On donne à la date d'expiration celle du jour
+    var expdate = new Date()
+      
+    // Donner à la date d'expiration (en millisecondes) 
+    // une valeur correspondant à une année plus tard.
+    expdate.setTime(expdate.getTime() 
+                    + (1000 * 60 * 60 * 24 * 365)); 
+
+    setCookie('monCookie', userName, expdate);  
+    alert ("Merci de vous être enregistré, " 
+           + userName 
+           + " !  Cliquez sur OK pour entrer dans la "
+           + "partie privée de mon site.");
+
+    // Chargement de la page destinée aux utilisateurs 
+    // enregistrés
+    location.href = "6-2.htm"
+  }
+}
+
+
+/////////////////////////////////////////////////////////
+// Ce code recherche un cookie du nom de 'monCookie'
+// sur la machine de l'utilisateur.
+//
+// S'il existe, c'est que l'utilisateur s'est déjà
+// enregistré.
+//
+// Si non, il faut lui demander de le faire.
+//////////////////////////////////////////////////////////
+
+// Si "monCookie" existe...
+
+if(getCookie('monCookie') != null) 
+{ // Charger la page protégée à la place de la présente.
+
+  location.href="6-2.htm"
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<H1>Premier exemple de cookie</H1>
+
+<FORM NAME="loginForm">
+Vous devez vous enregistrer avant de pouvoir visiter
+le reste de mon site. Pour cela, saisissez vos nom
+et prénom puis cliquez sur le bouton "Enregistrement".
+<P>
+<INPUT TYPE="text" NAME="fullName" SIZE=35>
+<BR>
+<INPUT TYPE="button" VALUE="Enregistrement" 
+       onClick="register(loginForm.fullName.value)">
+</FORM>
+</BODY>
+</HTML>
