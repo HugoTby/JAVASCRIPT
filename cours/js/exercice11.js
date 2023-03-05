@@ -6,17 +6,20 @@ PromiseJson.catch(error => VideoColorSpace.log("Le serveur à renvoyé l'erreur 
 // ou sous une forme factorisée :
 
 fetch(
-    "http://127.0.0.1/JAVASCRIPT/cours/json/exercice11.json",
+    "http://192.168.65.92/JAVASCRIPT/json/exercice11.json",
     {method: 'GET'}
 ).then(
     response => response.json()
 ).then(
-    response2 => console.log(JSON.stringify(response2))
+    response2 => {
+        var MaDiv = document.getElementById("MethodeJSON");
+        MaDiv.addEventListener("click", function(evenement){
+            evenement.target.innerHTML = JSON.stringify(response2);
+        });
+    }
 ).catch(error => console.log("Le serveur à renvoyé l'erreur : "+ error));
 
 
-
-//get element by id L-14 + récup de div
 
 
 /*
