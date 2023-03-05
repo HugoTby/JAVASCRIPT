@@ -1,7 +1,17 @@
-{"menu":"file"}
-
-
-
-
-
-
+{
+  "nom": "Jean",
+  "prenom": "Dupont",
+  "age": 35,
+  "ville": "Paris",
+  "pays": "France",
+  "hobbies": [
+    "voyage",
+    "lecture",
+    "cinéma"
+  ],
+  "emploi": {
+    "poste": "Développeur Web",
+    "entreprise": "XYZ Inc.",
+    "ville": "Paris"
+  }
+}
