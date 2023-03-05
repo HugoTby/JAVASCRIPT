@@ -1,0 +1,17 @@
+#MethodeJSON{
+    background-color: blueviolet;
+    color: brown;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
