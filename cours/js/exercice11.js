@@ -33,7 +33,7 @@ Options Indexes FollowSymLinks
 AllowOverride None
 Require all granted
 Header set Access-Control-Allow-Origin "*"
-</Directory>
+</Directory> 
 
 
 */
