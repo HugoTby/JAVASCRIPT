@@ -8,10 +8,10 @@ Améliorer le code pour que ce soit une fonction qui soit appelé au clic du bou
 function saisie(){
     
     // Saisie
-    var longueur = prompt("Saisissez une longueur :\n");
+    var diametre = prompt("Saisissez un diamètre :\n");
 
     // Calcul
-    let perimetre = longueur*Math.PI ;
-    let aire = (longueur/2)*Math.PI ;
-    alert("Le périmètre est de "+perimetre+" et l'aire est de "+aire);;
+    let perimetre = diametre*Math.PI ;
+    let aire = ((diametre/2)*(diametre/2))*Math.PI ;
+    alert("Le périmètre de "+diametre+" est de "+perimetre+" et l'aire de "+diametre+" est de "+aire);;
 }
