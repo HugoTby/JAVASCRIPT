@@ -8,12 +8,12 @@
 </head>
 <body>
     <style>.Div1{display: flex;justify-content: center;align-items: center;}</style>
-    <h1 style="text-align: center;color:orange">Exercice 1 sur le JavaScript</h1>
+    <h1 style="text-align: center;color:orange">Exercice 2 sur le JavaScript</h1>
 
     <div class="Div1">
         <button class="bouton" onclick="saisie();" >Cliquez ici</button>
     </div>
 
-    <script type="text/javascript" src="js/exercice1.js"></script>
+    <script type="text/javascript" src="js/exercice2.js"></script>
 </body>
 </html> 
