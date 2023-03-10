@@ -23,4 +23,4 @@ function boucle2(evenement) {
         tab2[i]=i*i;
     }
     alert("Les éléments du tableau sont : \n->"+tab2);
-}
+}   
