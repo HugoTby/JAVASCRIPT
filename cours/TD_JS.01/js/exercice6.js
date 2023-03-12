@@ -8,12 +8,32 @@ d'alerte successivement le résultat de soustrait appliqué au premier élément
 dernier élément du tableau (en utilisant la propriété length).
 */
 
+var tab = [-2, 1, 4];
 
 
-function soustrait(evenement) {
-    
+function soustrait(x) 
+{
+    if (x >= 0)
+    {
+        return x - 2;
+    }
+    else
+    {
+        return "Nombre négatif !";
+    }
+
 }
 
-function affiche(evenement) {
-    
+
+
+var buttonClick = document.getElementById('MaDivNum1');
+buttonClick.addEventListener("click", affiche);
+
+function affiche(evenement) 
+{
+    for (let i = 0; i < tab.length; i++)
+    {
+        alert(soustrait(tab[i]));   
+    }
 }
+

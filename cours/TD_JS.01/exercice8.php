@@ -9,14 +9,14 @@
 </head>
 <body>
     <style>.Div1{display: flex;justify-content: center;align-items: center;}</style>
-    <h1 style="text-align: center;color:orange">Exercice 6 sur le JavaScript</h1>
+    <h1 style="text-align: center;color:orange">Exercice 8 sur le JavaScript</h1>
 
     <div class="divA">
-        <div id="MaDivNum1" class="divD">
+        <div id="MaDivNum1" class="divE">
             Cliquez ici
         </div>
     </div>
 
-    <script type="text/javascript" src="js/exercice6.js"></script>
+    <script type="text/javascript" src="js/exercice8.js"></script>
 </body>
 </html> 
