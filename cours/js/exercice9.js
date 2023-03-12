@@ -30,3 +30,4 @@ function modification3() {
         modif[i].innerHTML = "Hello";
     }
 }
+
