@@ -40,8 +40,9 @@
     align-items: center;
 }
 
-.divE{
-    color: black;
+#divD{
+    background-color: blueviolet;
+    color: brown;
     width: 200px;
     height: 200px;
     text-align: center;
@@ -49,4 +50,3 @@
     justify-content: center;
     align-items: center;
 }
-
